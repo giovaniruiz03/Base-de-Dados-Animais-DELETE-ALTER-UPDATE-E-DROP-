@@ -1,0 +1,47 @@
+CREATE TABLE tb_especies (
+    id    AUTO_INCREMENT PRIMARY KEY,
+    nome  varchar(50) NOT NULL,
+    descr text
+);
+
+INSERT INTO tb_especies (nome, descr) VALUES ('Labrador Retriever', 'O Labrador Retriever é uma raça de cachorro conhecida por sua amabilidade, inteligência e habilidades de busca e resgate.');
+INSERT INTO tb_especies (nome, descr) VALUES ('Bulldog Inglês', 'O Bulldog Inglês é uma raça de cachorro de porte médio conhecida por seu corpo robusto, focinho curto e rugas faciais distintivas.');
+INSERT INTO tb_especies (nome, descr) VALUES ('Dachshund', 'O Dachshund, também conhecido como cachorro-salsicha, é uma raça de cachorro de corpo longo e pernas curtas.');
+
+
+/*Altere o nome do Pateta para Goofy*/
+UPDATE tb_animais SET nome = 'Goofy' WHERE nome = 'Pateta';
+
+/*Altere o peso do Garfield para 10 quilogramas*/
+UPDATE tb_animais SET peso = 10 WHERE nome = 'Garfield';
+
+/*Crie um campo altura para os animais*/
+ALTER TABLE tb_animais ADD altura decimal(10,2);
+
+/*Crie um campo observação para os animais*/
+ALTER TABLE tb_animais ADD observacao varchar(255);
+
+/*Remova todos os animais que o nome inicie com a letra ‘C’*/
+DELETE FROM tb_animais WHERE nome LIKE 'C%';
+
+/*Remova o campo cor dos animais*/
+ALTER TABLE tb_animais DROP COLUMN cor;
+
+/*Aumente o tamanho do campo nome dos animais para 80 caracteres*/
+ALTER TABLE tb_animais modify COLUMN nome varchar(80);
+
+/*Remova todos os gatos e cachorros*/
+DELETE FROM tb_animais WHERE nome IN ('Goofy', 'Félix', 'Tom', 'Manda-chuva', 'Snowball', 'Bidu', 'Dum Dum', 'Muttley', 'Rufus');
+
+/*Remova o campo data de nascimento dos animais*/
+ALTER TABLE tb_animais DROP COLUMN nasc;
+
+/*Remova todos os animais*/
+DELETE FROM tb_animais;
+
+/*Remova a tabela espécie*/
+DELETE FROM tb_especies;
+
+select * FROM tb_especies;
+
+select * from tb_animais;
